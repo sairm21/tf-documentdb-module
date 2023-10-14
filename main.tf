@@ -35,8 +35,8 @@ resource "aws_docdb_cluster" "doc_db" {
   cluster_identifier      = "${var.component}-${var.env}-docdb-cluster"
   engine                  = var.engine
   engine_version          = var.engine_version
-  master_username         = data.aws_ssm_parameter.docdb_username
-  master_password         = data.aws_ssm_parameter.docdb_password
+  master_username         = data.aws_ssm_parameter.docdb_username.value
+  master_password         = data.aws_ssm_parameter.docdb_password.value
 
   db_subnet_group_name = aws_docdb_subnet_group.doc_db.name
   vpc_security_group_ids = [aws_security_group.docdb_sg.id]
