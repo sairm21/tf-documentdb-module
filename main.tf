@@ -40,7 +40,9 @@ resource "aws_docdb_cluster" "doc_db" {
 
   db_subnet_group_name = aws_docdb_subnet_group.doc_db.name
   vpc_security_group_ids = [aws_security_group.docdb_sg.id]
+
   kms_key_id = var.kms_key_id
+  storage_encrypted = true
 
   skip_final_snapshot     = true
 }
