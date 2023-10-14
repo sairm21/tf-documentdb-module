@@ -2,7 +2,7 @@ resource "aws_docdb_subnet_group" "doc_db" {
   name       = "${var.component}-${var.env}-cluster-subent-group"
   subnet_ids = var.subnet_ids
 
-  tags = merge({ Name = "${var.env}-${var.component}-subnet-group" }, var.tags)
+  tags = { Name = "${var.env}-${var.component}-subnet-group" }
 }
 
 resource "aws_security_group" "docdb_sg" {
